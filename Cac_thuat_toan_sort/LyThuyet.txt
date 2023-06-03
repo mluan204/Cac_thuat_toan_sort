@@ -14,3 +14,17 @@
 			Bước 3: Đổi chỗ a[min] và a[i]
 			Bước 4: Nếu i < N-1 thì i=i+1; Lặp lại Bước 2; 
 					Ngược lại: Dừng
+
+II. Insert sort
+	1. Ý tưởng:
+		✓ Giả sử có một dãy A={a0, a1, .., an-1} trong đó i phần tử đầu tiên a0, a1,... ,ai-1 đã có thứ tự.
+		✓ Tìm cách chèn phần tử ai vào vị trí thích hợp của đoạn đã được sắp để có dãy mới a0, a1,... ,aitrở nên có thứ tự. 
+		   Vị trí này chính là vị trí giữa hai phần tử ak-1 và ak thỏa ak-1 < ai < ak (1≤k≤i)
+	2. Thuật toán
+			- Các bước thực hiện:
+		Bước 1: i = 1;
+		Bước 2: x = a[i]; //Tìm vị trí pos thích hợp trong đoạn a[1] đến a[i-1] để chèn a[i] vào
+		Bước 3: Dời chỗ các phần tử từ a[pos] đến a[i-1] sang phải 1 vị trí để dành chổ cho a[i]
+		Bước 4: a[pos] = x; //có đoạn a[1]..a[i] đã được sắp
+		Bước 5: i = i+1; Nếu i < n : Lặp lại Bước 2
+				Ngược lại: Dừng
