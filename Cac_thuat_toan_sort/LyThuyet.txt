@@ -14,6 +14,7 @@
 			Bước 3: Đổi chỗ a[min] và a[i]
 			Bước 4: Nếu i < N-1 thì i=i+1; Lặp lại Bước 2; 
 					Ngược lại: Dừng
+	- Độ phức tạp: tốt nhất, tb, xấu nhất = O(n^2)
 
 II. Insert sort
 	1. Ý tưởng:
@@ -28,3 +29,56 @@ II. Insert sort
 		Bước 4: a[pos] = x; //có đoạn a[1]..a[i] đã được sắp
 		Bước 5: i = i+1; Nếu i < n : Lặp lại Bước 2
 				Ngược lại: Dừng
+	- Độ phức tạp:
+		+ Tốt nhất: O(n)
+		+ Trung bình: O(n^2)
+		+ Xấu nhất: O(n^2)
+
+III. Counting Sort
+	1. Ý tưởng:
+		❖ Giá trị khóa của ai là chỉ số của mảng B có k phần tử (k là giá trị khóa lớn nhất của A)
+		❖ Quá trình sắp xếp danh sách A là đếm số phần tử của mỗi chỉ số của B trong A. Từ đó tính ra thứ tự
+		   của các khóa ai trong A.
+	    ❖ Kết quả sắp xếp có được bằng cách lấy vị trị của phần tử A được lưu trong B
+
+	2. Giải thuật:
+		❖ Bước 1: Đếm số lần xuất hiện của từng phần tử trong mảng cần sắp xếp A[]. Kết quả được lưu vào mảng C[]
+		❖ Bước 2: Xem xét sửa đổi giá trị của C[]. C[i] thể hiện giới hạn trên của chỉ số của phần tử i sau khi sắp xếp.
+		❖ Bước 3: Duyệt qua từng phần tử của A[] và đặt nó vào đúng chỉ số của mảng chứa các giá trị đã sắp xếp
+					B[] dựa vào C[].
+	- Độ phức tạp: O(n+k), trong đó k là kích thước mảng
+
+IV. Radix Sort
+	1. Ý tưởng:
+		❖ Radix sort (Sắp xếp cơ số) là một thuật toán sắp xếp không so sánh . Nó tránh so sánh bằng cách tạo và phân phối các phần tử vào các
+			nhóm theo cơ số của chúng .
+		❖ Sắp xếp cơ số còn được gọi là sắp xếp theo nhóm và sắp xếp kỹ thuật số
+	2. Thuật toán Radix Sort:
+		❖ Sắp xếp các số theo chữ số đơn vị: sắp xếp các số theo giá trị chữ số đơn vị (từ phải sang trái) của chúng.
+		❖ Sắp xếp các số theo chữ số hàng chục: sắp xếp các số theo giá trị chữ số hàng chục của chúng.
+		❖ Lặp lại cho tới khi các số được sắp xếp hoàn toàn
+
+V. Quick Sort
+	1. Giải thuật:
+		+ Bước 1 : Chọn tùy ý phần tử a[k] trong dãy là giá trị mốc ( l ≤ k ≤ r):
+						x = a[k]; i = l; j = r;
+		+ Bước 2 : Phát hiện và hiệu chỉnh cặp phần tử a[i], a[j] nằm sai chỗ:
+						Bước 2a : Trong khi (a[i]<x) i++;
+						Bước 2b : Trong khi (a[j]>x) j--;
+						Bước 2c : Nếu i< j Swap(a[i],a[j]);
+		+ Bước 3 : Nếu i < j: Lặp lại Bước 2.
+					Ngược lại: Dừng
+
+	- Độ phức tạp:
+		+ Tốt nhất: O(nlogn)
+		+ Trung bình: O(nlogn)
+		+ Xấu nhất: O(n^2)
+
+VI. Mert Sort
+	1. Thuật toán:
+		- Bước 1: Khởi tạo i=0,j=0,k=0 cho 3 mảng A[], B[], C[].
+		- Bước 2: Tại mỗi bước tại chỉ số (i<n và j<m) ta chọn min B[i]C[j] lưu vào C[k]. Chuyển sang bước 4.
+		- Bước 3: k=k+2 quay lại bước 2
+		- Bước 4: Sao chép các giá trị còn lại từ các danh sách mà các chỉ số còn vi phạm (i<m hoặc j<m) vào mảng C[].
+	
+	=> Độ phức tạp: O(nlogn)
