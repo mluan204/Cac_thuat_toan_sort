@@ -55,45 +55,7 @@ void insert_sort(int a[], int n)
 	}
 }
 
-void counting_sort(int input[], int n)
-	{
-		int* output = new int[n]; // The output will have sorted input array
-		int max = input[0];
-		int min = input[0];
 
-		int i;
-		for (i = 1; i < n; i++)
-		{
-			if (input[i] > max)
-				max = input[i]; // Maximum value in array
-			else if (input[i] < min)
-				min = input[i]; // Minimum value in array
-		}
-
-		int k = max - min + 1; // Size of count array
-
-		int* count_array = new int[k]; // Create a count_array to store count of each individual input value
-		for (i = 0; i < k; i++)
-			count_array[i] = 0;
-
-		for (i = 0; i < n; i++)
-			count_array[input[i] - min]++; // Store count of each individual input value
-
-		/* Change count_array so that count_array now contains actual
-		 position of input values in output array */
-		for (i = 1; i < k; i++)
-			count_array[i] += count_array[i - 1];
-
-		// Populate output array using count_array and input array
-		for (i = 0; i < n; i++)
-		{
-			output[count_array[input[i] - min] - 1] = input[i];
-			count_array[input[i] - min]--;
-		}
-
-		for (i = 0; i < n; i++)
-			input[i] = output[i]; // Copy the output array to input, so that input now contains sorted values
-}
 
 void Quick_Sort(int a[], int l, int r)
 {
@@ -134,7 +96,7 @@ int main()
 	cin >> n;
 	int* a = new int[n];
 	Nhap(a, n);
-	selection_sort(a, n);
+	insert_sort(a, n);
 	Xuat(a, n);
 	return 0;
 }

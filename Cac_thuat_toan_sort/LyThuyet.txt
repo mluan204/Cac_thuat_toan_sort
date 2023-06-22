@@ -34,31 +34,12 @@ II. Insert sort
 		+ Trung bình: O(n^2)
 		+ Xấu nhất: O(n^2)
 
-III. Counting Sort
-	1. Ý tưởng:
-		❖ Giá trị khóa của ai là chỉ số của mảng B có k phần tử (k là giá trị khóa lớn nhất của A)
-		❖ Quá trình sắp xếp danh sách A là đếm số phần tử của mỗi chỉ số của B trong A. Từ đó tính ra thứ tự
-		   của các khóa ai trong A.
-	    ❖ Kết quả sắp xếp có được bằng cách lấy vị trị của phần tử A được lưu trong B
 
-	2. Giải thuật:
-		❖ Bước 1: Đếm số lần xuất hiện của từng phần tử trong mảng cần sắp xếp A[]. Kết quả được lưu vào mảng C[]
-		❖ Bước 2: Xem xét sửa đổi giá trị của C[]. C[i] thể hiện giới hạn trên của chỉ số của phần tử i sau khi sắp xếp.
-		❖ Bước 3: Duyệt qua từng phần tử của A[] và đặt nó vào đúng chỉ số của mảng chứa các giá trị đã sắp xếp
-					B[] dựa vào C[].
-	- Độ phức tạp: O(n+k), trong đó k là kích thước mảng
+III. Quick Sort
 
-IV. Radix Sort
-	1. Ý tưởng:
-		❖ Radix sort (Sắp xếp cơ số) là một thuật toán sắp xếp không so sánh . Nó tránh so sánh bằng cách tạo và phân phối các phần tử vào các
-			nhóm theo cơ số của chúng .
-		❖ Sắp xếp cơ số còn được gọi là sắp xếp theo nhóm và sắp xếp kỹ thuật số
-	2. Thuật toán Radix Sort:
-		❖ Sắp xếp các số theo chữ số đơn vị: sắp xếp các số theo giá trị chữ số đơn vị (từ phải sang trái) của chúng.
-		❖ Sắp xếp các số theo chữ số hàng chục: sắp xếp các số theo giá trị chữ số hàng chục của chúng.
-		❖ Lặp lại cho tới khi các số được sắp xếp hoàn toàn
+	- Ý tưởng: chia mảng thành hai phần bằng cách so sánh từng phần tử của mảng với một phần tử được gọi là phần tử chốt. 
+				Một mảng bao gồm các phần tử nhỏ hơn hoặc bằng phần tử chốt và một mảng gồm các phần tử lớn hơn phần tử chốt.
 
-V. Quick Sort
 	1. Giải thuật:
 		+ Bước 1 : Chọn tùy ý phần tử a[k] trong dãy là giá trị mốc ( l ≤ k ≤ r):
 						x = a[k]; i = l; j = r;
@@ -74,7 +55,9 @@ V. Quick Sort
 		+ Trung bình: O(nlogn)
 		+ Xấu nhất: O(n^2)
 
-VI. Mert Sort
+IV. Mert Sort
+	- Ý tưởng: Thuật toán này chia mảng cần sắp xếp thành 2 nửa. Tiếp tục lặp lại việc này ở các nửa mảng đã chia. 
+				Sau cùng gộp các nửa đó thành mảng đã sắp xếp.
 	1. Thuật toán:
 		- Bước 1: Khởi tạo i=0,j=0,k=0 cho 3 mảng A[], B[], C[].
 		- Bước 2: Tại mỗi bước tại chỉ số (i<n và j<m) ta chọn min B[i]C[j] lưu vào C[k]. Chuyển sang bước 4.
@@ -82,3 +65,10 @@ VI. Mert Sort
 		- Bước 4: Sao chép các giá trị còn lại từ các danh sách mà các chỉ số còn vi phạm (i<m hoặc j<m) vào mảng C[].
 	
 	=> Độ phức tạp: O(nlogn)
+
+VI. Heap Sort
+	- Ý tưởng: 
+		+ Chia mảng ban đầu thành hai mảng con: Một mảng bao gồm các phần tử đã sắp xếp và một mảng bao gồm các phần tử còn lại chưa được sắp xếp. 
+		   Ban đầu, mảng đã sắp xếp là mảng rỗng, mảng chưa sắp xếp chính là mảng ban đầu.
+		+ Tìm phần tử nhỏ nhất/lớn nhất trong mảng chưa sắp xếp và đưa nó vào cuối mảng đã sắp xếp (tùy vào cách sắp xếp là tăng dần hay giảm dần). 
+		   Đây chính là bước cần sử dụng đến cấu trúc dữ liệu Heap.
