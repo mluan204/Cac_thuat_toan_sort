@@ -24,7 +24,7 @@ II. Insert sort
 	2. Thuật toán
 			- Các bước thực hiện:
 		Bước 1: i = 1;
-		Bước 2: x = a[i]; //Tìm vị trí pos thích hợp trong đoạn a[1] đến a[i-1] để chèn a[i] vào
+		Bước 2: x = a[i]; pos = i - 1; //Tìm vị trí pos thích hợp trong đoạn a[1] đến a[i-1] để chèn a[i] vào
 		Bước 3: Dời chỗ các phần tử từ a[pos] đến a[i-1] sang phải 1 vị trí để dành chổ cho a[i]
 		Bước 4: a[pos] = x; //có đoạn a[1]..a[i] đã được sắp
 		Bước 5: i = i+1; Nếu i < n : Lặp lại Bước 2
