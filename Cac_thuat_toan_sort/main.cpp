@@ -85,18 +85,13 @@ void Quick_Sort(int a[], int l, int r)
 
 
 
-
-
-
-
-
 int main()
 {
 	int n;
 	cin >> n;
 	int* a = new int[n];
 	Nhap(a, n);
-	insert_sort(a, n);
+	Quick_Sort(a, 0, n - 1);
 	Xuat(a, n);
 	return 0;
 }

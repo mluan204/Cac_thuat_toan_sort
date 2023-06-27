@@ -46,7 +46,7 @@ III. Quick Sort
 		+ Bước 2 : Phát hiện và hiệu chỉnh cặp phần tử a[i], a[j] nằm sai chỗ:
 						Bước 2a : Trong khi (a[i]<x) i++;
 						Bước 2b : Trong khi (a[j]>x) j--;
-						Bước 2c : Nếu i< j Swap(a[i],a[j]);
+						Bước 2c : Nếu i <= j Swap(a[i],a[j]);
 		+ Bước 3 : Nếu i < j: Lặp lại Bước 2.
 					Ngược lại: Dừng
 
