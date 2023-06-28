@@ -77,7 +77,39 @@ void Quick_Sort(int a[], int l, int r)
 		Quick_Sort(a, i, r);
 }
 
+void Heapify(int a[], int n, int i)
+{
+	int largest = i;
+	int left = 2 * i + 1;
+	int right = 2 * i + 2;
 
+	if (left < n && a[left] < a[largest])
+		largest = left;
+
+	if (right<n && a[right] < a[largest]) {
+		largest = right;
+	}
+
+	if (largest != i)
+	{
+		Swap(a[largest], a[i]);
+		Heapify(a, n, largest);
+	}
+}
+
+void HeapSort(int a[], int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--)
+	{
+		Heapify(a, n, i);
+	}
+
+	for (int i = n - 1; i >= 0; i--)
+	{
+		Swap(a[0], a[i]);
+		Heapify(a, i, 0);
+	}
+}
 
 
 
@@ -91,7 +123,7 @@ int main()
 	cin >> n;
 	int* a = new int[n];
 	Nhap(a, n);
-	Quick_Sort(a, 0, n - 1);
+	HeapSort(a, n);
 	Xuat(a, n);
 	return 0;
 }
